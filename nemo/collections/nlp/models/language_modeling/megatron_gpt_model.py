@@ -254,11 +254,11 @@ class MegatronGPTModel(MegatronBaseModel, TextGeneration):
             else:
                 self.model = Float16Module(module=self.model, precision=cfg.precision)
 
-        if self.trainer.precision == 'bf16':
+        if self.trainer.precision[0:4] == 'bf16':
             self.autocast_dtype = torch.bfloat16
-        elif int(self.trainer.precision) == 32:
+        elif self.trainer.precision[0:2] == '32':
             self.autocast_dtype = torch.float
-        elif int(self.trainer.precision) == 16:
+        elif self.trainer.precision[0:2] == '16':
             self.autocast_dtype = torch.half
         else:
             raise ValueError('precision must be in [32, 16, "bf16"]')
