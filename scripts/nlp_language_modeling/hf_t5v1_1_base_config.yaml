@@ -74,7 +74,6 @@ micro_batch_size: 4
 global_batch_size: 8
 tensor_model_parallel_size: 1
 pipeline_model_parallel_size: 1
-resume_from_checkpoint: null
 pipeline_model_parallel_split_rank: 0
 make_vocab_size_divisible_by: 128
 megatron_amp_O2: false
