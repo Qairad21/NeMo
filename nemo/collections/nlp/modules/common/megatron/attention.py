@@ -744,8 +744,8 @@ class CoreAttention(MegatronModule):
         self.precision = precision
         self.fp16 = False
         self.bf16 = False
-        # Check for first few chars to be '16' or 'bf16' as Precision can also be '16-mixed' or 'bf16-mixed' 
-        # along with 16 or bf16 in case of PTL >= 2.0 
+        # Check for first few chars to be '16' or 'bf16' as Precision can also be '16-mixed' or 'bf16-mixed'
+        # along with 16 or bf16 in case of PTL >= 2.0
         if str(precision)[0:4] == 'bf16':
             self.bf16 = True
         elif str(precision)[0:2] == '16':

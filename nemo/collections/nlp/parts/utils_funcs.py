@@ -30,9 +30,9 @@ from nemo.utils import logging
 def dtype_from_precision(precision: Union[int, str], megatron_amp_O2: Optional[bool]) -> torch.dtype:
     if megatron_amp_O2 is not None and megatron_amp_O2 is False:
         return torch.float32
-    
-    # Check for first few chars to be '16', '32' or 'bf16' as Precision can also be '16-mixed', '32-true' or 'bf16-mixed' 
-    # along with 16, 32 or bf16 in case of PTL >= 2.0 
+
+    # Check for first few chars to be '16', '32' or 'bf16' as Precision can also be '16-mixed', '32-true' or 'bf16-mixed'
+    # along with 16, 32 or bf16 in case of PTL >= 2.0
     if str(precision)[0:4] == 'bf16':
         return torch.bfloat16
     elif str(precision)[0:2] == '16':

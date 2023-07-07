@@ -905,7 +905,7 @@ class MegatronGPTModel(MegatronBaseModel, TextGeneration):
         torch.distributed.broadcast(averaged_loss, get_last_rank())
 
         self.log('val_loss', averaged_loss, prog_bar=True, rank_zero_only=True, batch_size=1)
-        self.validation_step_outputs.clear() #free memory
+        self.validation_step_outputs.clear()  # free memory
 
         return averaged_loss
 

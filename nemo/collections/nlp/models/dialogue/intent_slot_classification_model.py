@@ -431,7 +431,7 @@ class IntentSlotClassificationModel(NLPModel):
         self.intent_classification_report.reset()
         self.slot_classification_report.reset()
 
-        self.validation_step_outputs.clear() #free memory
+        self.validation_step_outputs.clear()  # free memory
         return {
             'val_loss': avg_loss,
             'intent_precision': intent_precision,
@@ -492,7 +492,7 @@ class IntentSlotClassificationModel(NLPModel):
         self.intent_classification_report.reset()
         self.slot_classification_report.reset()
 
-        self.test_step_outputs.clear() #free memory
+        self.test_step_outputs.clear()  # free memory
         return {
             'test_loss': avg_loss,
             'intent_precision': intent_precision,

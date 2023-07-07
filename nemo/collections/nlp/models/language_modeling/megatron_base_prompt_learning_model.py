@@ -133,8 +133,8 @@ class MegatronBasePromptLearningModel(MegatronBaseModel, TextGeneration):
         self.pad_token_id = self.tokenizer.pad_id if self.tokenizer.pad_id is not None else self.tokenizer.unk_id
         self.decoder_seq_length = cfg.get('decoder_seq_length', 40)
 
-        # Check for first few chars to be '16', '32' or 'bf16' as Precision can also be '16-mixed', '32-true' or 'bf16-mixed' 
-        # along with 16, 32 or bf16 in case of PTL >= 2.0 
+        # Check for first few chars to be '16', '32' or 'bf16' as Precision can also be '16-mixed', '32-true' or 'bf16-mixed'
+        # along with 16, 32 or bf16 in case of PTL >= 2.0
         if self.trainer.precision[0:4] == 'bf16':
             self.autocast_dtype = torch.bfloat16
         elif self.trainer.precision[0:2] == '32':

@@ -184,9 +184,9 @@ class HeteronymClassificationModel(NLPModel):
         self.classification_report.reset()
 
         if split == 'val':
-            self.validation_step_outputs.clear() # free memory
+            self.validation_step_outputs.clear()  # free memory
         elif split == 'test':
-            self.test_step_outputs.clear() 
+            self.test_step_outputs.clear()
 
     def test_step(self, batch, batch_idx):
         """
